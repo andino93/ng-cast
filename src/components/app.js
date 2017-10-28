@@ -11,6 +11,7 @@ angular.module('video-player')
       },
       
       this.searchResults = (query) => {
+        query = query || 'cats';
         youTube.search(query, 5, (data) => { 
           this.videos = data;
           this.currentVideo = data[0];
@@ -19,9 +20,13 @@ angular.module('video-player')
       
       this.onClick = (event) => {
         this.currentVideo = event;
+      },
+      
+      this.init = () => {
+        this.searchResults();
       };
       
-
+      this.init();
     },
     
     templateUrl: 'src/templates/app.html'

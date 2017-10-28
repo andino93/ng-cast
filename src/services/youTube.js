@@ -10,7 +10,8 @@ angular.module('video-player')
           q: query,
           maxResults: maxResults,
           part: 'snippet',
-          type: 'video' 
+          type: 'video',
+          videoEmbeddable: 'true'
         }
       }).then((data) => {
         callback(data.data.items);
